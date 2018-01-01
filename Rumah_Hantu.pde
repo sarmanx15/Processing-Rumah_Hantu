@@ -23,11 +23,6 @@ float timerGame =15;
 float timer;
 float rate = .0416;
 
-
-boolean displayImage=true;
-int startTime;
-int durasiHantu=20000;  // 2 secs
-
 void setup() {
   hantuni = new hantu[27];
   //level 1
@@ -197,13 +192,13 @@ void playGame(int game) {
       startTime=millis();
       kaget.pause();      
       image(hantu1, 0, 0, 700, 700);
-      
+
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     } else if (x==245 || x==240 ) {
       kaget.pause();
       image(hantu2, 0, 0, 700, 700);
-      
+
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
@@ -455,13 +450,6 @@ void gamePause() {
   if (looping==true) {
     noLoop();
   }
-  //if (keyPressed == true || key=='l' && looping==false) {    
-  //  loop();
-
-  //  //if(looping==true){
-  //  //  delay(500);
-  //  //}
-  //}
 }
 
 //================================================================ AUTO LOAD SOUND ====================================================================
