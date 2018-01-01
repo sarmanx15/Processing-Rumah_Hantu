@@ -8,7 +8,6 @@ AudioPlayer mati, mulai, open, yey, playing, kaget, win;
 
 hantu[] hantuni;
 
-//hantu iniHantu = new hantu();
 int x=350;
 int y=570;
 PImage Up, Down, Left, Right, player, peta1, peta2, peta3, peta4, peta5, gameOver, home, about, caraMain, lolos, winner, hantu1, hantu2, hantu3, hantu4, hantu5, hantu6, acakHantu, bunga;
@@ -112,8 +111,6 @@ void setup() {
 }
 
 void draw() {  
-  println(mouseX, mouseY);
-  println(key, CODED, keyCode);
   background(0);
 
   switch(sesi) {
@@ -143,18 +140,15 @@ void draw() {
     break;
 
   case 3:
-
     mulai.pause();
     open.play();    
     image(about, 0, 0, 700, 700);
     break;
 
   case 4:
-
     mulai.pause();
     open.play();    
     image(caraMain, 0, 0, 700, 700);
-
     break;
   }
 }
@@ -163,19 +157,15 @@ void playGame(int game) {
 
   switch(game) {
   case 1:
-
     image(peta1, 0, 0, 700, 700);
     titikHantu(0, 2);//tempat hantu mondar mandir
     checkPoint(x+10, y+10);
     image(player, x, y);
-
     println(x, y);//cekpos
     //durasi();
     timerGame -=rate;
     println(timerGame);
     textSize(20);
-
-
     if (timerGame>=.1) {
       fill(#FAD935);
       text(timerGame, 88, 38);
@@ -192,7 +182,6 @@ void playGame(int game) {
       mati.play();
       noLoop();
     }
-
     if (x>325 && x<380) {
       if (y<=20) {
         mati.pause();
@@ -201,35 +190,34 @@ void playGame(int game) {
         image(lolos, 0, 0, 700, 700);
         yey.play();
         sesi=2;
+        noLoop();
       }
     }
-    if (y==300) {
+    if (y==300 || y==305) {
       startTime=millis();
       kaget.pause();      
       image(hantu1, 0, 0, 700, 700);
-         
+      
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
-    } else if (x==245) {
+    } else if (x==245 || x==240 ) {
       kaget.pause();
-      image(hantu2, 0, 0, 700, 700); 
+      image(hantu2, 0, 0, 700, 700);
+      
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
     break;
-
   case 2:
     image(peta2, 0, 0, 720, 680);
     titikHantu(3, 6);//tempat hantu mondar mandir    
     checkPoint(x+10, y+10);
     image(player, x, y);
-
     println(x, y);//cekpos
     //durasi();
     timerGame -=rate;
     println(timerGame);
     textSize(20);
-
     if (timerGame>=.1) {
       fill(#FAD935);
       text(timerGame, 88, 38);
@@ -243,8 +231,8 @@ void playGame(int game) {
       image(gameOver, 0, 0, 700, 700);
       playing.pause();
       mati.play();
+      noLoop();
     }
-
     if (x>310 && x<380) {
       if (y<=20) {
         mati.pause();
@@ -252,43 +240,39 @@ void playGame(int game) {
         fill(250, 0, 0);
         image(lolos, 0, 0, 700, 700);
         yey.play();
+        noLoop();
       }
     }
     //muncul hantu
-    if (x==321 && y==400) {
+    if (y==160 || y==165) {
       kaget.pause();
       image(hantu2, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     } 
-    if (x==204) {
+    if (x==204 ||x==209) {
       kaget.pause();
       image(hantu3, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (x==270 && y==215) {
+    if (y==255 || y==260) {
       kaget.pause();
       image(hantu5, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-
     break;
   case 3:
-
     image(peta3, 0, 0, 720, 680);
     titikHantu(7, 12);//tempat hantu mondar mandir
     checkPoint(x+10, y+10);
     image(player, x, y);
-
     println(x, y);//cekpos
     //durasi();
     timerGame -=rate;
     println(timerGame);
     textSize(20);
-
-
     if (timerGame>=.1) {
       fill(#FAD935);
       text(timerGame, 88, 38);
@@ -302,8 +286,8 @@ void playGame(int game) {
       image(gameOver, 0, 0, 700, 700);
       playing.pause();
       mati.play();
+      noLoop();
     }
-
     if (x>325 && x<400) {
       if (y<=40) {
         mati.pause();
@@ -312,26 +296,26 @@ void playGame(int game) {
         image(lolos, 0, 0, 700, 700);
         yey.play();        
         sesi=2;
+        noLoop();
       }
     }
-
     //muncul hantu
-    if (x==400) {      
+    if (x==400 || x==405) {      
       image(hantu4, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (y==258) {
+    if (y==265 || y==270) {
       image(hantu5, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (y==158) {
+    if (y==140 || y==135 ) {
       image(hantu6, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (y==200) {
+    if (y==200 || y==205) {
       image(hantu3, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
@@ -348,8 +332,6 @@ void playGame(int game) {
     timerGame -=rate;
     println(timerGame);
     textSize(20);
-
-
     if (timerGame>=.1) {
       fill(#FAD935);
       text(timerGame, 88, 38);
@@ -363,8 +345,8 @@ void playGame(int game) {
       image(gameOver, 0, 0, 700, 700);
       playing.pause();
       mati.play();
+      noLoop();
     }
-
     if (x>325 && x<380) {
       if (y<=20) {
         mati.pause();
@@ -373,24 +355,24 @@ void playGame(int game) {
         image(lolos, 0, 0, 700, 700);
         yey.play();
         sesi=2;
+        noLoop();
       }
     }
-
     //muncul hantu
-    if (x==100) {      
+    if (x==100 || x==105) {      
       image(hantu2, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
-    } else if (y==460) {
+    } else if (y==460 || y==465) {
       image(hantu4, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
-    } else if (y==158) {
+    } else if (y==245 || y==250) {
       image(hantu6, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (y==200) {
+    if (y==200 || y==195) {
       image(hantu3, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
@@ -422,6 +404,7 @@ void playGame(int game) {
       playing.pause();
       kalah=true;      
       mati.play();
+      noLoop();
     }
 
     if (x>325 && x<380) {
@@ -432,27 +415,28 @@ void playGame(int game) {
         fill(250, 0, 0);
         image(winner, 0, 0, 700, 700);
         win.play();
+        noLoop();
         //sesi=2;
       }
     }
 
     //muncul hantu
-    if (x==350) {      
+    if (x==348 || x==343) {      
       image(hantu1, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     } 
-    if (y==258) {
+    if (y==260 || y==255) {
       image(hantu6, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (y==158) {
-      image(gameOver, 0, 0, 700, 700); 
+    if (y==160 || y==165) {
+      image(hantu2, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
     }
-    if (y==100) {
+    if (y==110 || y==105) {
       image(hantu3, 0, 0, 700, 700); 
       kaget.play();
       kaget = minim.loadFile("scary.mp3");
@@ -496,7 +480,7 @@ void keyPressed() {
     y=570;
     sesi=2;
     game=1;
-    level=1;
+    level=5;
     timerGame = 65;
     playing.play();
   }
@@ -584,6 +568,7 @@ void keyPressed() {
       sesi=2;
       level=5;
     }
+    loop();
   }
   // About Key
   if (key=='t' || key=='T' ) {
